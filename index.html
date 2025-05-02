@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="monetag" content="ec5024b1b62b7396e7ff2a82f3514ada" />
+  <title>Inspirational Bible Quotes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
 
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    .quote-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 700px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: all 0.5s ease-in-out;
+      animation: fadeIn 2s;
+    }
+
+    .quote {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .reference {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .quote {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Be Inspired by the Word of God</h1>
+
+  <div class="quote-box" id="quoteBox">
+    <div class="quote" id="quoteText">“I can do all things through Christ who strengthens me.”</div>
+    <div class="reference" id="quoteRef">— Philippians 4:13</div>
+  </div>
+
+  <script>
+    const quotes = [
+      {
+        text: "“I can do all things through Christ who strengthens me.”",
+        ref: "— Philippians 4:13"
+      },
+      {
+        text: "“For I know the plans I have for you, declares the Lord...”",
+        ref: "— Jeremiah 29:11"
+      },
+      {
+        text: "“The Lord is my shepherd; I shall not want.”",
+        ref: "— Psalm 23:1"
+      },
+      {
+        text: "“Be strong and courageous. Do not be afraid...”",
+        ref: "— Joshua 1:9"
+      },
+      {
+        text: "“Let all that you do be done in love.”",
+        ref: "— 1 Corinthians 16:14"
+      }
+    ];
+
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % quotes.length;
+      document.getElementById('quoteText').innerText = quotes[index].text;
+      document.getElementById('quoteRef').innerText = quotes[index].ref;
+    }, 5000);
+  </script>
+
+  <!-- 🔒 Ad Loader + Protection Script -->
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Disable new tab/middle click/Ctrl+Click/Shift+Click
+    document.addEventListener('click', function (e) {
+      if (e.button === 1 || e.ctrlKey || e.shiftKey || e.metaKey) {
+        e.preventDefault();
+      }
+    }, true);
+
+    // Disable popups
+    window.open = function () {
+      console.log("Popup blocked.");
+      return null;
+    };
+
+    // Random ad script loader
+    const zoneIds = ['145403', '145404', '145405', '145406', '145407', '145408', '145409'];
+    const randomZone = zoneIds[Math.floor(Math.random() * zoneIds.length)];
+
+    const adScript = document.createElement('script');
+    adScript.src = "https://ligheechoagool.com/88/tag.min.js";
+    adScript.setAttribute("data-zone", randomZone);
+    adScript.setAttribute("async", true);
+    adScript.setAttribute("data-cfasync", "false");
+
+    document.body.appendChild(adScript);
+  </script>
+
+</body>
+</html>
