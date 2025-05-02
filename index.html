@@ -49,6 +49,22 @@
       margin-top: 10px;
     }
 
+    #zoneInfo {
+      margin-top: 20px;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.2);
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    a {
+      pointer-events: none;
+      cursor: default;
+      text-decoration: none;
+      color: inherit;
+    }
+
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
@@ -74,32 +90,20 @@
     <div class="reference" id="quoteRef">— Philippians 4:13</div>
   </div>
 
+  <!-- Show Zone ID Here -->
+  <p id="zoneInfo">Loading Ad Zone ID...</p>
+
   <script>
+    // Quotes rotate
     const quotes = [
-      {
-        text: "“I can do all things through Christ who strengthens me.”",
-        ref: "— Philippians 4:13"
-      },
-      {
-        text: "“For I know the plans I have for you, declares the Lord...”",
-        ref: "— Jeremiah 29:11"
-      },
-      {
-        text: "“The Lord is my shepherd; I shall not want.”",
-        ref: "— Psalm 23:1"
-      },
-      {
-        text: "“Be strong and courageous. Do not be afraid...”",
-        ref: "— Joshua 1:9"
-      },
-      {
-        text: "“Let all that you do be done in love.”",
-        ref: "— 1 Corinthians 16:14"
-      }
+      { text: "“I can do all things through Christ who strengthens me.”", ref: "— Philippians 4:13" },
+      { text: "“For I know the plans I have for you, declares the Lord...”", ref: "— Jeremiah 29:11" },
+      { text: "“The Lord is my shepherd; I shall not want.”", ref: "— Psalm 23:1" },
+      { text: "“Be strong and courageous. Do not be afraid...”", ref: "— Joshua 1:9" },
+      { text: "“Let all that you do be done in love.”", ref: "— 1 Corinthians 16:14" }
     ];
 
     let index = 0;
-
     setInterval(() => {
       index = (index + 1) % quotes.length;
       document.getElementById('quoteText').innerText = quotes[index].text;
@@ -107,34 +111,68 @@
     }, 5000);
   </script>
 
-  <!-- 🔒 Ad Loader + Protection Script -->
+  <!-- 🔒 Security Script -->
   <script>
     // Disable right-click
     document.addEventListener('contextmenu', event => event.preventDefault());
 
-    // Disable new tab/middle click/Ctrl+Click/Shift+Click
+    // Block link clicks and special click combinations
     document.addEventListener('click', function (e) {
-      if (e.button === 1 || e.ctrlKey || e.shiftKey || e.metaKey) {
+      const target = e.target.closest('a');
+      if (target || e.button === 1 || e.ctrlKey || e.metaKey || e.shiftKey) {
         e.preventDefault();
+        e.stopPropagation();
+        return false;
       }
     }, true);
 
-    // Disable popups
+    // Block window.open
     window.open = function () {
-      console.log("Popup blocked.");
+      console.warn("window.open is disabled.");
       return null;
     };
 
-    // Random ad script loader
+    // Prevent window.location overwrite
+    Object.defineProperty(window, 'location', {
+      writable: false,
+      configurable: false,
+      value: window.location
+    });
+
+    // Observe external script/iframe injection and remove
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+          if ((node.tagName === 'IFRAME' || node.tagName === 'SCRIPT') && node.src && !node.src.includes(window.location.hostname)) {
+            console.log("🚫 External content removed:", node.src);
+            node.remove();
+          }
+        });
+      });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Prevent beforeunload redirect
+    window.onbeforeunload = function () {
+      return null;
+    };
+  </script>
+
+  <!-- ✅ Ad Script with Zone ID Shown on Page -->
+  <script>
     const zoneIds = ['145403', '145404', '145405', '145406', '145407', '145408', '145409'];
     const randomZone = zoneIds[Math.floor(Math.random() * zoneIds.length)];
 
+    // Show on page
+    document.getElementById('zoneInfo').innerText = "🔰 Current Ad Zone ID: " + randomZone;
+
+    // Load ad script
     const adScript = document.createElement('script');
     adScript.src = "https://ligheechoagool.com/88/tag.min.js";
     adScript.setAttribute("data-zone", randomZone);
-    adScript.setAttribute("async", true);
+    adScript.setAttribute("async", "true");
     adScript.setAttribute("data-cfasync", "false");
-
     document.body.appendChild(adScript);
   </script>
 
