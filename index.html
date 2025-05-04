@@ -1,286 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Bible Inspiration</title>
-    <script src='//whephiwums.com/sdk.js' data-zone='9269835' data-sdk='show_9269835'></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4a6fa5;
-            --secondary: #ff7e5f;
-            --accent: #6b8c42;
-            --light: #f8f9fa;
-            --dark: #343a40;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            color: var(--dark);
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-        
-        header h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        
-        header p {
-            opacity: 0.9;
-            font-size: 1rem;
-        }
-        
-        .header-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .content {
-            padding: 25px;
-        }
-        
-        .quote-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid var(--accent);
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-        
-        .quote-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .quote-text {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: var(--dark);
-            font-style: italic;
-        }
-        
-        .quote-reference {
-            text-align: right;
-            font-weight: bold;
-            color: var(--primary);
-        }
-        
-        .quote-icon {
-            position: absolute;
-            top: -15px;
-            left: 15px;
-            background-color: var(--accent);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-        }
-        
-        .ad-section {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 25px 0;
-            text-align: center;
-            border: 1px dashed #ddd;
-        }
-        
-        .ad-title {
-            color: var(--secondary);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            margin: 5px;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: #3a5a8c;
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #e66a4a;
-            transform: translateY(-2px);
-        }
-        
-        .btn-accent {
-            background-color: var(--accent);
-            color: white;
-        }
-        
-        .btn-accent:hover {
-            background-color: #5a7b38;
-            transform: translateY(-2px);
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid #eee;
-        }
-        
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .quote-text {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Link Opener</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-icon">
-                <i class="fas fa-bible"></i>
-            </div>
-            <h1>Daily Bible Inspiration</h1>
-            <p>Find strength and comfort in God's Word</p>
-        </header>
-        <div class="content">
-            <div class="ad-section">
-                <h3 class="ad-title">
-                    <i class="fas fa-ad"></i> Support Our Ministry
-                </h3>
-                <p>Please consider watching an ad to support our free Bible app</p>
-                
-                <button class="btn btn-primary" onclick="showRewardedAd()">
-                    <i class="fas fa-gift"></i> Watch Rewarded Ad
-                </button>
-                
-                <button class="btn btn-secondary" onclick="showPopupAd()">
-                    <i class="fas fa-window-maximize"></i> Show Popup Ad
-                </button>
-                
-                <button class="btn btn-accent" onclick="showInAppAd()">
-                    <i class="fas fa-mobile-alt"></i> Show In-App Ad
-                </button>
-            </div>
-            
-            <div class="quote-card">
-                <div class="quote-icon">
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <p class="quote-text">"I can do all this through him who gives me strength."</p>
-                <p class="quote-reference">- Philippians 4:13</p>
-            </div>
-            
-            <div class="quote-card">
-                <div class="quote-icon">
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <p class="quote-text">"The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters, he refreshes my soul."</p>
-                <p class="quote-reference">- Psalm 23:1-3</p>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <p>© 2023 Daily Bible Inspiration | Hub </p>
-            <p>
-                <i class="fas fa-heart" style="color: #ff7e5f;"></i> 
-                <i class="fas fa-cross" style="color: #4a6fa5;"></i> 
-                <i class="fas fa-dove" style="color: #6b8c42;"></i>
-            </p>
-        </div>
-    </div>
-    
-    <script>
-        function showRewardedAd() {
-            show_9269835().then(() => {
-                // You need to add your user reward function here
-                alert('Thank you for supporting us! May God bless you.');
-            }).catch(e => {
-                console.error('Ad error:', e);
-            });
-        }
-        
-        function showPopupAd() {
-            show_9269835('pop').then(() => {
-                // user watched ad till the end
-                alert('Thank you for your support!');
-            }).catch(e => {
-                console.error('Popup ad error:', e);
-            });
-        }
-        
-        function showInAppAd() {
-            show_9269835({ 
-                type: 'inApp', 
-                inAppSettings: { 
-                    frequency: 2, 
-                    capping: 0.1, 
-                    interval: 30, 
-                    timeout: 5, 
-                    everyPage: false 
-                } 
-            });
-        }
-    </script>
+
+  <h1>Open Random Link</h1>
+  <button onclick="openRandomLink()">Open Random Site</button>
+
+  <script>
+    // Array of links
+    const links = [
+      "https://www.profitableratecpm.com/yfww42ww?key=65f761caa8361ac12133f15c723a741b",
+      "https://www.profitableratecpm.com/ctcdxp1h?key=5cbe98f16f0706600762712499293ab3",
+      "https://www.profitableratecpm.com/qe07261f?key=1f0c0de03c5de8cf7ee78aa7b8c38493",
+      "https://www.profitableratecpm.com/ziejsfmjck?key=fa452d1bae094ac4b850becd5e26258c",
+      "https://www.profitableratecpm.com/qga3knsb?key=2169608d520da98e9b15f5375ee7bdf2",
+      "https://www.profitableratecpm.com/bzm18skb?key=c191d431673ba1957134d6aadd5bfb11",
+      "https://www.profitableratecpm.com/eeg0mg32?key=a8dfbb0446d8f18e9721375f02a197f4",
+      "https://www.profitableratecpm.com/cfpu2ekj?key=a5eac538cfc684e2a3e75b28e4c3e3bd",
+      "https://www.profitableratecpm.com/g2ferdvmz?key=5cd4fa94e359da84401c0a79be114975",
+      "https://www.profitableratecpm.com/xkvas1tpn?key=6a3efc05775b92e39cb671dbf5872542",
+    ];
+
+    // Function to open a random link in the same tab
+    function openRandomLink() {
+      const randomIndex = Math.floor(Math.random() * links.length);
+      const randomLink = links[randomIndex];
+      window.location.href = randomLink;
+    }
+  </script>
+
 </body>
 </html>
