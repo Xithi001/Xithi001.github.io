@@ -1,63 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Random Link Opener</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      text-align: center;
-    }
-    #countdown {
-      font-size: 24px;
-      color: #333;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Time Tracker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 1000px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        
+        h1 {
+            margin-top: 0;
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 30px;
+        }
+        
+        .time-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .time-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s;
+        }
+        
+        .time-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .country {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffcc00;
+        }
+        
+        .time {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .date {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .countdown {
+            font-size: 2rem;
+            margin: 30px 0;
+            color: #ff6b6b;
+        }
+        
+        .redirect-message {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .link-info {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-family: monospace;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .time-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Global Time Tracker</h1>
+        
+        <div class="time-container">
+            <div class="time-card">
+                <div class="country">New York, USA</div>
+                <div class="time" id="time-ny"></div>
+                <div class="date" id="date-ny"></div>
+            </div>
+            
+            <div class="time-card">
+                <div class="country">London, UK</div>
+                <div class="time" id="time-london"></div>
+                <div class="date" id="date-london"></div>
+            </div>
+            
+            <div class="time-card">
+                <div class="country">Tokyo, Japan</div>
+                <div class="time" id="time-tokyo"></div>
+                <div class="date" id="date-tokyo"></div>
+            </div>
+            
+            <div class="time-card">
+                <div class="country">Sydney, Australia</div>
+                <div class="time" id="time-sydney"></div>
+                <div class="date" id="date-sydney"></div>
+            </div>
+            
+            <div class="time-card">
+                <div class="country">Dubai, UAE</div>
+                <div class="time" id="time-dubai"></div>
+                <div class="date" id="date-dubai"></div>
+            </div>
+        </div>
+        
+        <div class="redirect-message">
+            You will be redirected in <span class="countdown" id="countdown">5</span> seconds...
+        </div>
+        
+        <div class="link-info">
+            Opening link index: <span id="link-index"></span><br>
+            URL: <span id="link-url"></span>
+        </div>
+        
+        <div class="footer">
+            © 2023 Global Time Tracker | All Rights Reserved
+        </div>
+    </div>
 
-  <h1>Opening Random Site In <span id="countdown">5</span> Seconds...</h1>
-
-  <script>
-    const links = [
-      "https://www.profitableratecpm.com/vd7bp7w7?key=3fad86e8712bdc52363c0c1cb856a2ca",
-      "https://www.profitableratecpm.com/yfww42ww?key=65f761caa8361ac12133f15c723a741b",
-      "https://www.profitableratecpm.com/zkfhc8ciri?key=a5966cf19a9fd101ffdcee462597f2f0",
-      "https://www.profitableratecpm.com/ctcdxp1h?key=5cbe98f16f0706600762712499293ab3",
-      "https://www.profitableratecpm.com/z41qc7r3us?key=fc92c6385f2956ff18800fcb81cc94eb",
-      "https://www.profitableratecpm.com/qe07261f?key=1f0c0de03c5de8cf7ee78aa7b8c38493",
-      "https://www.profitableratecpm.com/ziejsfmjck?key=fa452d1bae094ac4b850becd5e26258c",
-      "https://www.profitableratecpm.com/p8h0frsi?key=550e126dc6620beff09aafaa7c5cab24",
-      "https://www.profitableratecpm.com/qga3knsb?key=2169608d520da98e9b15f5375ee7bdf2",
-      "https://www.profitableratecpm.com/cbm37a99t?key=c5c1f57c5858333dc84c96a2c872b76c",
-      "https://www.profitableratecpm.com/bzm18skb?key=c191d431673ba1957134d6aadd5bfb11",
-      "https://www.profitableratecpm.com/eeg0mg32?key=a8dfbb0446d8f18e9721375f02a197f4",
-      "https://www.profitableratecpm.com/zkmhaimtrw?key=3e460e86c495d1f0ceeba08043fe2a1e",
-      "https://www.profitableratecpm.com/cfpu2ekj?key=a5eac538cfc684e2a3e75b28e4c3e3bd",
-      "https://www.profitableratecpm.com/g2ferdvmz?key=5cd4fa94e359da84401c0a79be114975",
-      "https://www.profitableratecpm.com/b3k82ng2d?key=7bba311d9a812941f843cfccb4a459a6",
-      "https://www.profitableratecpm.com/xkvas1tpn?key=6a3efc05775b92e39cb671dbf5872542",
-      "https://www.profitableratecpm.com/vd7bp7w7?key=3fad86e8712bdc52363c0c1cb856a2ca",
-      "https://www.profitableratecpm.com/md05n2zpqq?key=c1a0fbc5ba67083df46a3a2c0ec5e40e",
-    ];
-
-    // Countdown and redirect logic
-    let secondsLeft = 5;
-    const countdownElement = document.getElementById('countdown');
-
-    const countdown = setInterval(() => {
-      secondsLeft--;
-      countdownElement.textContent = secondsLeft;
-
-      if (secondsLeft <= 0) {
-        clearInterval(countdown);
+    <script>
+        // Links array
+        const links = [
+            "https://www.profitableratecpm.com/p8h0frsi?key=550e126dc6620beff09aafaa7c5cab24",
+            "https://www.profitableratecpm.com/b3k82ng2d?key=7bba311d9a812941f843cfccb4a459a6",
+            "https://www.profitableratecpm.com/t8xhxn0n6?key=d251375afa4545f8244ce27b2270c486",
+            "https://www.profitableratecpm.com/cbm37a99t?key=c5c1f57c5858333dc84c96a2c872b76c",
+            "https://www.profitableratecpm.com/zkmhaimtrw?key=3e460e86c495d1f0ceeba08043fe2a1e",
+            "https://www.profitableratecpm.com/zkfhc8ciri?key=a5966cf19a9fd101ffdcee462597f2f0",
+            "https://www.profitableratecpm.com/vd7bp7w7?key=3fad86e8712bdc52363c0c1cb856a2ca",
+            "https://www.profitableratecpm.com/md05n2zpqq?key=c1a0fbc5ba67083df46a3a2c0ec5e40e",
+            "https://www.profitableratecpm.com/z41qc7r3us?key=fc92c6385f2956ff18800fcb81cc94eb",
+            "https://www.profitableratecpm.com/cuih258ffd?key=7c4e9297b711e55c37f8295d264f4606",
+            "https://www.profitableratecpm.com/abdehs7k?key=17f0e7e5bdf1ccd4d639e53544505a36",
+            "https://www.profitableratecpm.com/xirii1a0d3?key=a0dc23629bcdfe9e2663625e572092ac",
+            "https://www.profitableratecpm.com/nu69nur0?key=5a6c764020cea8896bb636fe6199bb5f",
+            "https://www.profitableratecpm.com/gza5z93vk?key=ba911435384b5f41c629b3be12bed9ba",
+            "https://www.profitableratecpm.com/kuk5126x3?key=a4a6e34cd234bbaae9728635db27e5d1",
+            "https://www.profitableratecpm.com/e0yyewzj7?key=bc4d15a1ae2a715073b2824f3a8f55e8",
+            "https://www.profitableratecpm.com/harzhsz0f?key=35d90af27bc5921018d741f240473d17"
+        ];
+        
+        // Select random link
         const randomIndex = Math.floor(Math.random() * links.length);
-        window.location.href = links[randomIndex];
-      }
-    }, 1000);
-  </script>
-
+        const randomLink = links[randomIndex];
+        
+        // Display which link will be opened
+        document.getElementById('link-index').textContent = randomIndex;
+        document.getElementById('link-url').textContent = randomLink;
+        
+        // Countdown and redirect
+        let seconds = 5;
+        const countdownElement = document.getElementById('countdown');
+        
+        const countdown = setInterval(() => {
+            seconds--;
+            countdownElement.textContent = seconds;
+            
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                window.location.href = randomLink;
+            }
+        }, 1000);
+        
+        // Time display functions
+        function updateTimes() {
+            const now = new Date();
+            
+            // New York
+            const nyTime = new Date(now.toLocaleString("en-US", {timeZone: "America/New_York"}));
+            document.getElementById('time-ny').textContent = nyTime.toLocaleTimeString();
+            document.getElementById('date-ny').textContent = nyTime.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            
+            // London
+            const londonTime = new Date(now.toLocaleString("en-US", {timeZone: "Europe/London"}));
+            document.getElementById('time-london').textContent = londonTime.toLocaleTimeString();
+            document.getElementById('date-london').textContent = londonTime.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            
+            // Tokyo
+            const tokyoTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Tokyo"}));
+            document.getElementById('time-tokyo').textContent = tokyoTime.toLocaleTimeString();
+            document.getElementById('date-tokyo').textContent = tokyoTime.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            
+            // Sydney
+            const sydneyTime = new Date(now.toLocaleString("en-US", {timeZone: "Australia/Sydney"}));
+            document.getElementById('time-sydney').textContent = sydneyTime.toLocaleTimeString();
+            document.getElementById('date-sydney').textContent = sydneyTime.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            
+            // Dubai
+            const dubaiTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Dubai"}));
+            document.getElementById('time-dubai').textContent = dubaiTime.toLocaleTimeString();
+            document.getElementById('date-dubai').textContent = dubaiTime.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        }
+        
+        // Update times immediately and then every second
+        updateTimes();
+        setInterval(updateTimes, 1000);
+    </script>
 </body>
 </html>
